@@ -1,8 +1,4 @@
 import React, { useEffect, lazy } from "react";
-// import ContactsForm from "./ContactsForm/ContactsForm"
-// import ContactList from "./ContactList/ContactList"
-// import { Filter } from "./Filter/Filter"
-// import {Section, Title, Container} from "./section.styled"
 import { useDispatch } from "react-redux"
 // import { selectIsLoading, selectError } from "redux/selectors";
 import { fetchContacts } from "../redux/operations"

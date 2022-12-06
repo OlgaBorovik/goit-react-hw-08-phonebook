@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import register from 'redux/auth/auth-operations';
+import { authOperations } from 'redux/auth';
 import { useState } from 'react';
 
 
@@ -24,7 +24,7 @@ export const RegisterForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(register({ name, email, password }));
+    dispatch(authOperations.register({ name, email, password }));
     setName('');
     setEmail('');
     setPassword('');
@@ -32,7 +32,7 @@ export const RegisterForm = () => {
 
 
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
+    <form onSubmit={handleSubmit} autoComplete="on">
       <label >
         Username
         <input type="text" name="name" value={name} onChange={handleChange}/>
