@@ -12,7 +12,7 @@ export const Navigation = () => {
       </NavLink>
       
         <NavLink to="/contacts">
-          Tasks
+         Contacts
         </NavLink>
       
     </nav>

@@ -32,11 +32,11 @@ const App = () => {
     <Routes >
       <Route path="/" element={<Layout />}>
         <Route index  element={<HomePage />}/>
-        <Route path="/register" component={<RegisterPage />} />
+        <Route path="/register" element={<RegisterPage />} />
      
-        <Route path="/login" component={<LoginPage />} />
+        <Route path="/login" element={<LoginPage />} />
               
-        <Route path="/contacts" component={<ContactsPage />} />
+        <Route path="/contacts" element={<ContactsPage />} />
       </Route>
       
              
