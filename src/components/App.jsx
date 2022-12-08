@@ -1,10 +1,11 @@
 import React, { useEffect, lazy } from "react";
-import { useDispatch } from "react-redux"
-// import { selectIsLoading, selectError } from "redux/selectors";
-import { fetchContacts } from "../redux/operations"
+import { useDispatch, useSelector } from "react-redux"
+import  {authOperations, authSelectors} from "../redux/auth"
 import { Route, Routes } from 'react-router-dom';
+import {PrivateRoute} from "./PrivateRoute"
+import { RestrictedRoute } from "./RestrictedRoute";
 import {Layout} from "./Layout/Layout"
-// import { selectVisibleContacts } from '../../redux/selectors'
+
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
@@ -17,29 +18,40 @@ const App = () => {
   // Отримуємо частини стану
   // const isLoading = useSelector(selectIsLoading);
   // const error = useSelector(selectError);
-  
+  const isRefreshing = useSelector(authSelectors.selectIsRefreshing)
 
   // Викликаємо операцію
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
 
-  return (
-    <Routes >
+  return !isRefreshing && (
+      <Routes >
       <Route path="/" element={<Layout />}>
         <Route index  element={<HomePage />}/>
-        <Route path="/register" element={<RegisterPage />} />
-     
-        <Route path="/login" element={<LoginPage />} />
-              
-        <Route path="/contacts" element={<ContactsPage />} />
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute redirectTo="/contacts" component={<RegisterPage />} />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
+          }
+        />
+        <Route path="/contacts" element={
+          <PrivateRoute redirectTo="/login" component={<ContactsPage />} ></PrivateRoute>
+        }></Route>
+        
       </Route>
       
              
     </Routes>
-  )
+    )
+    
   
-
   
 }
 
