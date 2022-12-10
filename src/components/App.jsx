@@ -4,7 +4,8 @@ import  {authOperations, authSelectors} from "../redux/auth"
 import { Route, Routes } from 'react-router-dom';
 import {PrivateRoute} from "./PrivateRoute"
 import { RestrictedRoute } from "./RestrictedRoute";
-import {Layout} from "./Layout/Layout"
+import { Layout } from "./Layout/Layout"
+import { ChakraProvider } from '@chakra-ui/react'
 
 
 const HomePage = lazy(() => import('../pages/Home'));
@@ -26,7 +27,8 @@ const App = () => {
   }, [dispatch]);
 
   return !isRefreshing && (
-      <Routes >
+    <ChakraProvider>
+<Routes >
       <Route path="/" element={<Layout />}>
         <Route index  element={<HomePage />}/>
         <Route
@@ -49,6 +51,8 @@ const App = () => {
       
              
     </Routes>
+    </ChakraProvider>
+      
     )
     
   

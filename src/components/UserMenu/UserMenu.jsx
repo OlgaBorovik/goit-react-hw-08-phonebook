@@ -1,5 +1,6 @@
 import { useSelector , useDispatch} from 'react-redux';
 import { authSelectors, authOperations } from 'redux/auth';
+import { Box, Text, Button } from '@chakra-ui/react'; 
 
 // import { useAuth } from 'hooks';
 
@@ -9,11 +10,11 @@ export const UserMenu = () => {
   const name = useSelector(authSelectors.selectUserName);
 
   return (
-    <div>
-      <p>Welcome, {name}</p>
-      <button type="button" onClick={() => dispatch(authOperations.logOut())}>
+    <Box>
+      <Text>Welcome, {name}</Text>
+      <Button type="button" onClick={() => dispatch(authOperations.logOut())}>
         Logout
-      </button>
-    </div>
+      </Button>
+    </Box>
   );
 };

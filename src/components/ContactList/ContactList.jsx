@@ -1,8 +1,9 @@
 import React from "react";
-import { ContactsUl, ContactItem } from "./ContactList.styled"
+// import { ContactsUl, ContactItem } from "./ContactList.styled"
 import Contact from "../Contact/Contact"
 import { selectContacts, selectFilter } from '../../redux/selectors'
-import { useSelector} from "react-redux"
+import { useSelector } from "react-redux"
+import { ListItem, UnorderedList } from '@chakra-ui/react'
 
 
 
@@ -14,13 +15,13 @@ function ContactList() {
     console.log(visibleContacts)
 
     return (
-            <ContactsUl>
+            <UnorderedList>
                 {visibleContacts.map(contact  => (
-                <ContactItem key={contact.id}>
+                <ListItem key={contact.id}>
                     <Contact contact={contact}  />    
-                </ContactItem>    
+                </ListItem>    
                 ))}
-            </ContactsUl>
+            </UnorderedList>
         )
     
 

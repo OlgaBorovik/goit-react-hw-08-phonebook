@@ -1,15 +1,22 @@
-import { NavLink } from 'react-router-dom';
+import { Link as NavLink } from 'react-router-dom';
+import { Box, Link, Flex } from '@chakra-ui/react';
 
 
 export const AuthNav = () => {
   return (
-    <div>
-      <NavLink  to="/register">
+    <Flex>
+      <Box w='100px' bg='white' p='4px' borderRadius='4' mr="24px" textAlign='center' border='1px' borderColor={'teal.500'} color='teal.500' _hover={{bg:'teal.500', color:'white' }} >
+        <Link as={NavLink}  to="/register" >
         Register
-      </NavLink>
-      <NavLink to="/login">
+      </Link>
+      </Box>
+      
+      <Box w='100px' bg='white' p='4px' borderRadius='4' mr="24px" textAlign='center' border='1px' borderColor={'teal.500'} color='teal.500' _hover={{bg:'teal.500', color:'white' }}>
+        <Link as={NavLink} to="/login">
         Log In
-      </NavLink>
-    </div>
+      </Link>
+      </Box>
+      
+    </Flex>
   );
 };

@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { authOperations } from 'redux/auth';
 import { useState } from 'react';
+import { Box,  Input, Button, Heading } from '@chakra-ui/react';
+import { FormControl, FormLabel } from "@chakra-ui/form-control"
 
 
 export const LoginForm = () => {
@@ -27,32 +29,32 @@ export const LoginForm = () => {
   };
 
   return (
-    <div>
-      <h1>Страница логина</h1>
+    <Box>
+      <Heading as="h2">Страница логина</Heading>
 
-      <form onSubmit={handleSubmit}  autoComplete="off">
-        <label >
+      <FormControl onSubmit={handleSubmit}  autoComplete="off">
+        <FormLabel >
           Почта
-          <input
+          <Input
             type="email"
             name="email"
             value={email}
             onChange={handleChange}
           />
-        </label>
+        </FormLabel>
 
-        <label >
+        <FormLabel>
           Пароль
-          <input
+          <Input
             type="password"
             name="password"
             value={password}
             onChange={handleChange}
           />
-        </label>
+        </FormLabel>
 
-        <button type="submit">Войти</button>
-      </form>
-    </div>
+        <Button type="submit">Войти</Button>
+      </FormControl>
+    </Box>
   );
 }

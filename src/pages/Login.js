@@ -1,13 +1,13 @@
-
+import { Box, Heading } from '@chakra-ui/react';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 
 export default function Login() {
   return (
-    <div>
+    <Box>
       
-        <title>Login</title>
+        <Heading as="h2">Login</Heading>
       
       <LoginForm />
-    </div>
+    </Box>
   );
 }

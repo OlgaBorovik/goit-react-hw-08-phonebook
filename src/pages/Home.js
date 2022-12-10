@@ -1,26 +1,29 @@
-const styles = {
-  container: {
-    minHeight: 'calc(100vh - 50px)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontWeight: 500,
-    fontSize: 48,
-    textAlign: 'center',
-  },
-};
+import { Heading, Flex} from "@chakra-ui/react";
+import {Icon} from '@chakra-ui/icon'
+import {BsBook} from 'react-icons/bs'
+
+
+// const styles = {
+//   container: {
+//     minHeight: 'calc(100vh - 50px)',
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+//   title: {
+//     fontWeight: 500,
+//     fontSize: 48,
+//     textAlign: 'center',
+//   },
+// };
 
 export default function Home() {
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>
-        Task manager welcome page{' '}
-        <span role="img" aria-label="Greeting icon">
-          💁‍♀️
-        </span>
-      </h1>
-    </div>
+    <Flex direction={'column'} >
+      <Heading as='h1' textAlign={'center'} mt='64px'>
+        Phonebook
+      </Heading>
+      <Icon as={BsBook} boxSize={16} mr='auto' ml="auto" mt="24px"/>
+    </Flex>
   );
 }

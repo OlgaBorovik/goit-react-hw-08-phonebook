@@ -1,13 +1,13 @@
-
+import { Box, Heading } from '@chakra-ui/react';
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 
 export default function Register() {
   return (
-    <div>
+    <Box>
       
-        <title>Registration</title>
+        <Heading as="h2">Registration</Heading>
       
       <RegisterForm />
-    </div>
+    </Box>
   );
 }

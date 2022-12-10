@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { authOperations } from 'redux/auth';
 import { useState } from 'react';
+import { FormControl, FormLabel, Input, Button, Text } from '@chakra-ui/react';
 
 
 export const RegisterForm = () => {
@@ -32,21 +33,21 @@ export const RegisterForm = () => {
 
 
   return (
-    <form onSubmit={handleSubmit} autoComplete="on">
-      <label >
+    <FormControl onSubmit={handleSubmit} autoComplete="on">
+      <FormLabel >
         Username
-        <input type="text" name="name" value={name} onChange={handleChange}/>
-      </label>
-      <label>
+        <Input type="text" name="name" value={name} onChange={handleChange}/>
+      </FormLabel>
+      <FormLabel>
         Email
-        <input type="email" name="email" value={email} onChange={handleChange}/>
-      </label>
-      <label>
+        <Input type="email" name="email" value={email} onChange={handleChange}/>
+      </FormLabel>
+      <FormLabel>
         Password
-        <input type="password" name="password" value={password} onChange={handleChange}/>
-      </label>
-      <button type="submit">Register</button>
-      <p>{name} {email} {password}</p>
-    </form>
+        <Input type="password" name="password" value={password} onChange={handleChange}/>
+      </FormLabel>
+      <Button type="submit">Register</Button>
+      <Text>{name} {email} {password}</Text>
+    </FormControl>
   );
 };
