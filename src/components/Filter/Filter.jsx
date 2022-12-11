@@ -3,7 +3,7 @@ import React from "react";
 // import { Input } from "../ContactsForm/ContactForm.styled"
 import { useDispatch } from "react-redux"
 import { setFilter } from "../../redux/filterSlice"
-import { FormLabel, Input } from "@chakra-ui/react";
+import { FormLabel, Input, Text } from "@chakra-ui/react";
 
 
 export const Filter = () => {
@@ -15,11 +15,12 @@ export const Filter = () => {
 
 
     return <FormLabel>
-        Find contacts by name
+        <Text fontSize="xl" mb="16px">Find contacts by name</Text>
         <Input
             type="text"
             name="filter"
             onChange={filterChangeHandler}
+            mb="16px"
         />
         </FormLabel>
 }

@@ -1,5 +1,5 @@
 import { Link as NavLink } from 'react-router-dom';
-import { Link, Box } from '@chakra-ui/react';
+import { Link, HStack } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 import { authSelectors } from 'redux/auth';
 
@@ -8,16 +8,18 @@ export const Navigation = () => {
 const isLoggedIn  = useSelector(authSelectors.selectIsLoggedIn)
 
   return (
-    <nav>
-      <Box w='100px' bg='white' p='4px' borderRadius='4' mr="24px" textAlign='center' border='1px' borderColor={'teal.500'} color='teal.500' _hover={{bg:'teal.500', color:'white' }}>
-        <Link as={NavLink}  to="/" >
+    <HStack spacing='24px'>
+      
+        <Link as={NavLink}  to="/" w='100px' p='4px' borderRadius='4' textAlign='center' border='2px' borderColor={'teal.500'} _hover={{bg:'teal.500', color:'white' }} textDecoration={"none"} >
         HOME
       </Link>
-      </Box>
       
-      {isLoggedIn && <NavLink to="/contacts">Contacts </NavLink> }
+      
+      {isLoggedIn && <Link as={NavLink} to="/contacts" w='100px' p='4px' borderRadius='4' textAlign='center' border='2px' borderColor={'teal.500'} _hover={{ bg: 'teal.500', color: 'white' }} textDecoration={"none"}>
+        CONTACTS
+      </Link>}
         
       
-    </nav>
+    </HStack>
   );
 };

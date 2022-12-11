@@ -1,20 +1,20 @@
 import { useSelector , useDispatch} from 'react-redux';
 import { authSelectors, authOperations } from 'redux/auth';
-import { Box, Text, Button } from '@chakra-ui/react'; 
+import { Text, Button, HStack } from '@chakra-ui/react'; 
 
 // import { useAuth } from 'hooks';
 
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
-  const name = useSelector(authSelectors.selectUserName);
+  const email = useSelector(authSelectors.selectUserEmail);
 
   return (
-    <Box>
-      <Text>Welcome, {name}</Text>
-      <Button type="button" onClick={() => dispatch(authOperations.logOut())}>
-        Logout
+    <HStack spacing="24px">
+      <Text fontSize='xl' as='b'>{email}</Text>
+      <Button type="button" onClick={() => dispatch(authOperations.logOut())} w='100px' p='4px' borderRadius='4' colorScheme={"teal"}>
+        LOG OUT
       </Button>
-    </Box>
+    </HStack>
   );
 };

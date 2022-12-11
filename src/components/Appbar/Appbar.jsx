@@ -7,11 +7,13 @@ import { useSelector } from 'react-redux';
 import { authSelectors } from 'redux/auth';
 import { Flex, Spacer } from '@chakra-ui/react';
 
+
 export const AppBar = () => {
- const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn)
+  const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn)
+  
 
   return (
-    <Flex as="header" p="8px" >
+    <Flex as="header" p="8px" mb="24px">
       <Navigation />
       <Spacer />
     {isLoggedIn ? <UserMenu /> : <AuthNav />}
